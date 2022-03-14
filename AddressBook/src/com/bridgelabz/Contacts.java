@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class Info {
+public class Contacts {
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -60,7 +60,7 @@ public class Info {
 	}
 	@Override
 	public String toString() {
-		return "Info {"+ 
+		return "Contacts {"+ 
 				" Firstname : " +firstName+ 
 				", LastName : " +lastName+ 
 				", Address : " +address+
