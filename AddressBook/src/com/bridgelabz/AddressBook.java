@@ -4,6 +4,7 @@ public class AddressBook {
 	static UserInput obj = new UserInput();
 
 	public static void main(String[] args) {
+
 		boolean isExit = false;
 		while (!isExit)
 		{
@@ -33,5 +34,11 @@ public class AddressBook {
 				sc.close();
 			}
 		}
+
+		System.out.println("Welcome to Address Book System");
+		UserInput userInput = new UserInput();
+		userInput.addContacts();
+		System.out.println(userInput.toString());
+
 	}
 }
