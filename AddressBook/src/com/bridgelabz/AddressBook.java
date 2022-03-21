@@ -1,11 +1,12 @@
 package com.bridgelabz;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
 	Scanner sc = new Scanner(System.in);
 	ArrayList<Contacts> contactlist = new ArrayList<>();
-
+	private HashMap<String, ArrayList<Contacts>> addressBook = new HashMap<>();
 	public void addNewContact()
 	{
 		Contacts contact = new Contacts();
@@ -35,6 +36,19 @@ public class AddressBook {
 
 		contactlist.add(contact);
 		System.out.println("Contact Added Successfully");
+
+		System.out.println("Enter a book name to which you want to add the contact..");
+		String bookName = sc.next();
+		if(addressBook.containsKey(bookName)) {
+			ArrayList<Contacts> contactList = addressBook.get(bookName);
+			addressBook.put(bookName, contactList);
+			System.out.println("New Contact added to the " +bookName);
+		} else {
+			ArrayList<Contacts> contactList = addressBook.get(bookName);
+			addressBook.put(bookName, contactList);
+			System.out.println(bookName+ " created ");
+			System.out.println("New Contact added to the " +bookName);
+		}	
 	}
 
 	public void editContact()
@@ -102,9 +116,10 @@ public class AddressBook {
 					Contacts contact = contactlist.get(i);
 					contactlist.remove(contact);
 					System.out.println("Contact deleted Successfully...");
+					break;
 				}
 				else
-					System.out.println("No such contact exist here....");
+					System.out.println("Contact not found.... ");
 			}
 		}else System.out.println("There are no contacts as of now ......");
 
